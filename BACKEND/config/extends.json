@@ -1,0 +1,10 @@
+{
+    "Authenticatable": {
+        "headers": ["Illuminate/Foundation/Auth/User as Authenticatable"],
+        "uses":[]
+    },
+    "Model": {
+        "headers": ["Illuminate/Database/Eloquent/Model"],
+        "uses":[]
+    }
+}

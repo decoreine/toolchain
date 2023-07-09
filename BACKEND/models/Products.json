@@ -1,0 +1,56 @@
+{
+    "attributes": {
+        "id": {
+            "type": "increments",
+            "incremental": true,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "name": {
+            "type": "string",
+            "incremental": false,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "price": {
+            "type": "decimal",
+            "incremental": false,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "description": {
+            "type": "text",
+            "incremental": false,
+            "unique": false,
+            "nullable": true,
+            "foreign": []
+        }
+    },
+    "fillables": ["name", "price", "description"],
+    "guardeds": [],
+    "hiddens": [],
+    "visibles": [],
+    "migration": {
+        "headers": [],
+        "extends": [],
+        "remembertoken": false
+    },
+    "model": {
+        "headers": [],
+        "extends": [],
+        "uses": []
+    },
+    "controller": {
+        "headers": [],
+        "extends": [],
+        "blocks": [],
+        "validators": {
+            "name": "required",
+            "price": "required|numeric|min:0",
+            "description": "nullable"
+        }
+    }
+}

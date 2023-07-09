@@ -1,0 +1,22 @@
+0  use native version for php
+1   	mkdir ~/tmp
+	export TMPDIR=~/tmp
+      export TMPDIR=~/TMPDIR		
+2 	open new terminal
+3	curl https://get.volta.sh | bash
+    	export VOLTA_HOME="$HOME/.volta"
+    	export PATH="$VOLTA_HOME/bin:$PATH"
+    open .bashrc and add
+    	export TMPDIR=~/tmp
+      export TMPDIR=~/TMPDIR
+      export VOLTA_HOME="$HOME/.volta"
+      export PATH="$VOLTA_HOME/bin:$PATH"
+4 open new terminal
+5 	volta install node
+6 	npm install --global yarn
+7 	create subdomain lik deco.docan.shop
+8 	cd ~/deco.docan.shop
+9 	composer create-project roots/bedrock
+10 	update .env
+11 	composer require roots/acorn
+12 	cd ~/deco.docan.shop/bedrock/web/app/themes

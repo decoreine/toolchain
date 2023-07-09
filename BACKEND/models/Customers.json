@@ -1,0 +1,64 @@
+{
+    "attributes": {
+        "id": {
+            "type": "increments",
+            "incremental": true,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "name": {
+            "type": "string",
+            "incremental": false,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "email": {
+            "type": "string",
+            "incremental": false,
+            "unique": true,
+            "nullable": false,
+            "foreign": []
+        },
+        "phone": {
+            "type": "string",
+            "incremental": false,
+            "unique": false,
+            "nullable": true,
+            "foreign": []
+        },
+        "address": {
+            "type": "text",
+            "incremental": false,
+            "unique": false,
+            "nullable": true,
+            "foreign": []
+        }
+    },
+    "fillables": ["name", "email", "phone", "address"],
+    "guardeds": [],
+    "hiddens": [],
+    "visibles": [],
+    "migration": {
+        "headers": [],
+        "extends": [],
+        "remembertoken": false
+    },
+    "model": {
+        "headers": [],
+        "extends": [],
+        "uses": []
+    },
+    "controller": {
+        "headers": [],
+        "extends": [],
+        "blocks": [],
+        "validators": {
+            "name": "required",
+            "email": "required|email|unique:customers",
+            "phone": "nullable",
+            "address": "nullable"
+        }
+    }
+}

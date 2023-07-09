@@ -1,0 +1,105 @@
+{
+  "attributes": {
+    "id": {
+      "type": "increments",
+      "incremental": true,
+      "unique": false,
+      "nullable": false,
+      "foreign": []
+    },
+    "profile_id": {
+      "type": "integer",
+      "incremental": false,
+      "unique": false,
+      "nullable": true,
+      "foreign": [
+        {
+          "type": "hasOne",
+          "table": "profiles",
+          "key": "id",
+          "on_delete": "cascade",
+          "on_update": "cascade"
+        }
+      ]
+    },
+    "posts": {
+      "type": "string",
+      "incremental": false,
+      "unique": false,
+      "nullable": true,
+      "foreign": [
+        {
+          "type": "hasMany",
+          "table": "posts",
+          "key": "user_id",
+          "on_delete": "cascade",
+          "on_update": "cascade"
+        }
+      ]
+    },
+    "comment_id": {
+      "type": "integer",
+      "incremental": false,
+      "unique": false,
+      "nullable": true,
+      "foreign": [
+        {
+          "type": "belongsTo",
+          "table": "comments",
+          "key": "id",
+          "on_delete": "cascade",
+          "on_update": "cascade"
+        }
+      ]
+    },
+    "roles": {
+      "type": "string",
+      "incremental": false,
+      "unique": false,
+      "nullable": true,
+      "foreign": [
+        {
+          "type": "belongsToMany",
+          "table": "roles",
+          "key": "user_id",
+          "other_key": "role_id",
+          "pivot_table": "role_user"
+        }
+      ]
+    },
+    "credit_card_id": {
+      "type": "integer",
+      "incremental": false,
+      "unique": false,
+      "nullable": true,
+      "foreign": [
+        {
+          "type": "hasOneThrough",
+          "table": "credit_cards",
+          "through_table": "payments",
+          "first_key": "user_id",
+          "second_key": "payment_id",
+          "on_delete": "cascade",
+          "on_update": "cascade"
+        }
+      ]
+    },
+    "photos": {
+      "type": "string",
+      "incremental": false,
+      "unique": false,
+      "nullable": true,
+      "foreign": [
+        {
+          "type": "hasManyThrough",
+          "table": "photos",
+          "through_table": "albums",
+          "first_key": "user_id",
+          "second_key": "album_id",
+          "on_delete": "cascade",
+          "on_update": "cascade"
+        }
+      ]
+    }
+  }
+}

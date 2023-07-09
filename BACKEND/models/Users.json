@@ -1,0 +1,108 @@
+{
+    "attributes": {
+        "id": {
+            "type": "increments",
+            "incremental": true,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "name": {
+            "type": "string",
+            "incremental": false,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "username": {
+            "type": "string",
+            "incremental": false,
+            "unique": true,
+            "nullable": false,
+            "foreign": []
+        },
+        "email": {
+            "type": "string",
+            "incremental": false,
+            "unique": true,
+            "nullable": false,
+            "foreign": []
+        },
+        "password": {
+            "type": "string",
+            "incremental": false,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "role_id": {
+            "type": "integer",
+            "incremental": false,
+            "unique": false,
+            "nullable": true,
+            "foreign": [
+                {
+                    "table": "roles",
+                    "type": "belongsTo",
+                    "key": "id",
+                    "on_delete": "cascade",
+                    "on_update": "cascade"
+                }
+            ]
+        },
+        "avatar": "image",
+        "description": "string",
+        "website": "string"
+    },
+    "fillables": [
+        "id",
+        "name"
+    ],
+    "guardeds": [],
+    "hiddens": [
+        "description",
+        "password"
+    ],
+    "visibles": [],
+    "migration": {
+        "headers": [],
+        "extends": [],
+        "remembertoken": true
+    },
+    "model": {
+        "headers": [],
+        "extends": [
+            "Authenticatable"
+        ],
+        "uses": [
+            "HasFactory"
+        ]
+    },
+    "controller": {
+        "headers": [],
+        "extends": [],
+        "blocks": [
+            {
+                "type": "method",
+                "name": "uploadAvatar",
+                "parameters": [
+                    {
+                        "name": "$request",
+                        "type": "Request"
+                    }
+                ],
+                "content": ""
+            },
+            {
+                "type": "part",
+                "method": "update",
+                "content": ""
+            }
+        ],
+        "validators": {
+            "name": "required",
+            "email": "required|email|unique:users",
+            "password": "required|min:6"
+        }
+    }
+}

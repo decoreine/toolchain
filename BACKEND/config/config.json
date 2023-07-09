@@ -1,0 +1,40 @@
+{
+    "build_path": "build/JSON",
+    "modules_path": "build/app/Modules",
+    "levels": {
+        "light": {
+            "sub_directories": {
+                "Controllers": {
+                    "path": "{module_name}/Controllers",
+                    "method": "module.generate_controller_template"
+                },
+                "Models": {
+                    "path": "{module_name}/Models",
+                    "method": "module.generate_model_template"
+                },
+                "Views": {
+                    "path": "{module_name}/Views",
+                    "method": "module.generate_controller_template"
+                },
+                "Migrations": {
+                    "path": "{module_name}/Migrations",
+                    "method": "module.generate_migration_template"
+                },
+                "Routes": {
+                    "path": "{module_name}/Routes",
+                    "method": "module.generate_route_template"
+                },
+                "Config": {
+                    "path": "{module_name}/Config",
+                    "method": "module.generate_config_template"
+                },
+                "ServiceProvider": {
+                    "path": "{module_name}",
+                    "method": "module.generate_service_provider_template"
+                }
+            }
+        },
+        "medium": {},
+        "complete": {}
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "HasFactory": {
+        "headers": ["Illuminate/Database/Eloquent/Factories/HasFactory","Illuminate/Database/Eloquent/Factories/HasFactory"]
+    }
+}

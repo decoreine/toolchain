@@ -1,0 +1,98 @@
+{
+    "attributes": {
+        "id": {
+            "type": "increments",
+            "incremental": true,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "name": {
+            "type": "string",
+            "incremental": false,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "password": {
+            "type": "string",
+            "incremental": false,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "description": {
+            "type": "string",
+            "incremental": false,
+            "unique": false,
+            "nullable": false,
+            "foreign": []
+        },
+        "role_id": {
+            "type": "integer",
+            "incremental": false,
+            "unique": false,
+            "nullable": true,
+            "foreign": [
+                {
+          "type": "hasOne|belongsTo|hasMany|belongsToMany|hasOneThrough|hasManyThrough",
+                    "table": "roles",
+                    "key": "id",
+                    "on_delete": "cascade",
+                    "on_update": "cascade"
+                }
+            ]
+        }
+    },
+    "fillables": [
+        "id",
+        "name"
+    ],
+    "guardeds": [],
+    "hiddens": [
+        "description",
+        "password"
+    ],
+    "visibles": [],
+    "migration": {
+        "headers": [],
+        "extends": [],
+        "remembertoken": false
+    },
+    "model": {
+        "headers": [],
+        "extends": [
+            "Authenticatable"
+        ],
+        "uses": [
+            "HasFactory"
+        ]
+    },
+    "controller": { 
+        "headers": [],
+        "extends": [],
+        "blocks": [
+            {
+                "type": "method",
+                "name": "uploadAvatar",
+                "parameters": [
+                    {
+                        "name": "$request",
+                        "type": "Request"
+                    }
+                ],
+                "content": "content of method"
+            },
+            {
+                "type": "part",
+                "method": "update",
+                "content": "content of part"
+            }
+        ],
+        "validators": {
+            "name": "required",
+            "email": "required|email|unique:users",
+            "password": "required|min:6"
+        }
+    }
+}
